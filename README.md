@@ -53,7 +53,7 @@
 
 1. Clone or download this repository:
    ```bash
-   git clone https://github.com/your-username/hiring-content-detector.git
+   git clone https://github.com/pareshbhangale/JEV---Job-Hiring-Content-Detector.git
    ```
 2. Open your browser and navigate to the Extensions management page:
    - **Chrome**: `chrome://extensions`
