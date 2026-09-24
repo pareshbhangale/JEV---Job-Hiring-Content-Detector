@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JEV - Job Hiring Content Detector</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app-container">
+
+    <!-- Top Navigation Bar -->
+    <header class="app-header">
+      <div class="brand-group">
+        <div class="logo-icon">🎯</div>
+        <div class="brand-info">
+          <h1 class="brand-title">JEV Job Detector</h1>
+          <span class="domain-badge" id="domainBadge">Scanning...</span>
+        </div>
+      </div>
+      <button class="icon-btn" id="openSettingsBtn" title="Settings & History" aria-label="Settings">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="3"></circle>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+        </svg>
+      </button>
+    </header>
+
+    <!-- Master Switch Card -->
+    <section class="master-card" id="masterCard">
+      <div class="master-info">
+        <div class="pulse-indicator" id="pulseDot"></div>
+        <div>
+          <span class="master-title" id="masterStatusLabel">Detector Active</span>
+          <span class="master-subtitle" id="masterStatusSub">Analyzing page feed</span>
+        </div>
+      </div>
+      <label class="toggle-switch master-switch">
+        <input type="checkbox" id="masterToggle" name="masterToggle" aria-label="Detector Active Toggle" checked>
+        <span class="toggle-slider"></span>
+      </label>
+    </section>
+
+    <!-- Main Content Area -->
+    <main class="main-controls" id="mainControls">
+
+      <!-- Live Page Metrics -->
+      <section class="metrics-bar" id="metricsBar">
+        <div class="metric-item">
+          <span class="metric-value" id="statTotal">0</span>
+          <span class="metric-label">Matches</span>
+        </div>
+        <div class="metric-divider"></div>
+        <div class="metric-item highlight-strong">
+          <span class="metric-value" id="statStrong">0</span>
+          <span class="metric-label">Strong</span>
+        </div>
+        <div class="metric-divider"></div>
+        <div class="metric-item highlight-notable">
+          <span class="metric-value" id="statNotable">0</span>
+          <span class="metric-label">Notable</span>
+        </div>
+        <div class="metric-divider"></div>
+        <div class="metric-item">
+          <span class="metric-value" id="statPossible">0</span>
+          <span class="metric-label">Possible</span>
+        </div>
+      </section>
+
+      <!-- Toggle Controls List -->
+      <section class="toggles-card">
+        <div class="section-label">DISPLAY &amp; FILTER CONTROLS</div>
+
+        <!-- Toggle: Highlight Matches -->
+        <div class="toggle-row">
+          <div class="toggle-text">
+            <span class="toggle-title">🔲 Highlight Matches</span>
+            <span class="toggle-desc">Draw colored frames around job posts</span>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" id="toggleHighlight" name="toggleHighlight" aria-label="Highlight Matches Toggle" checked>
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+
+        <!-- Toggle: Filter Non-Hiring -->
+        <div class="toggle-row">
+          <div class="toggle-text">
+            <span class="toggle-title">🚫 Filter Non-Hiring</span>
+            <span class="toggle-desc">Hide non-job content from feed</span>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" id="toggleFilter" name="toggleFilter" aria-label="Filter Non-Hiring Toggle">
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+
+        <!-- Toggle: Dim Irrelevant -->
+        <div class="toggle-row">
+          <div class="toggle-text">
+            <span class="toggle-title">👁‍🗨 Dim Background</span>
+            <span class="toggle-desc">Fade out irrelevant feed items</span>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" id="toggleDim" name="toggleDim" aria-label="Dim Background Toggle">
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+
+        <!-- Toggle: AI Verification -->
+        <div class="toggle-row">
+          <div class="toggle-text">
+            <span class="toggle-title">🧠 AI Verification (JEV)</span>
+            <span class="toggle-desc">Validate borderline posts with AI</span>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" id="toggleJev" name="toggleJev" aria-label="AI Verification Toggle">
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+      </section>
+
+      <!-- Action Row -->
+      <footer class="action-row">
+        <button class="action-btn primary" id="rescanBtn">
+          <span class="btn-icon" id="rescanIcon">🔄</span>
+          <span>Rescan Page</span>
+        </button>
+        <button class="action-btn secondary" id="clearBtn">
+          <span>🧹 Clear Marks</span>
+        </button>
+      </footer>
+    </main>
+
+    <!-- Slide-Out Settings Drawer -->
+    <div class="settings-drawer" id="settingsDrawer">
+      <div class="drawer-header">
+        <h2 class="drawer-title">⚙️ Settings &amp; Tools</h2>
+        <button class="close-btn" id="closeSettingsBtn" aria-label="Close Settings">✕</button>
+      </div>
+
+      <div class="drawer-content">
+        <!-- API Key Section -->
+        <div class="drawer-section">
+          <label class="drawer-label" for="apiKeyInput">JEV AI API Key</label>
+          <div class="input-with-icon">
+            <input type="password" id="apiKeyInput" name="apiKeyInput" aria-label="JEV AI API Key" placeholder="Paste JEV API key..." spellcheck="false" autocomplete="off">
+            <button class="icon-btn-sm" id="toggleKeyVisBtn" title="Show/Hide">👁</button>
+          </div>
+          <div class="key-status-msg" id="keyStatusMsg"></div>
+        </div>
+
+        <!-- History Section -->
+        <div class="drawer-section">
+          <label class="drawer-label">Recent Scans</label>
+          <div class="history-list" id="historyList">
+            <div class="empty-history">No scan records yet.</div>
+          </div>
+        </div>
+
+        <!-- Export Action -->
+        <div class="drawer-section">
+          <button class="action-btn outline full-width" id="exportBtn">
+            <span>📥 Export Scan Results (JSON)</span>
+          </button>
+        </div>
+
+        <div class="drawer-footer">
+          Hiring Content Detector · v1.1.0
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="encrypt.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

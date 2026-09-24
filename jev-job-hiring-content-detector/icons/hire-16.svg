@@ -1,0 +1,6 @@
+<!-- Hiring Content Detector Icon (16x16) -->
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <rect width="16" height="16" rx="3" fill="#00876c"/>
+  <circle cx="8" cy="7" r="3.5" stroke="#fff" stroke-width="1.2" fill="none"/>
+  <path d="M5 14c0-2.5 1.5-4 3-4s3 1.5 3 4" stroke="#fff" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+</svg>

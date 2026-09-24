@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "JEV - Job Hiring Content Detector",
+  "version": "1.1.6",
+  "description": "Detects and highlights hiring/employment-related content on the current page using keyword scoring and optional JEV AI validation.",
+  "permissions": ["storage", "activeTab", "scripting", "tabs"],
+  "host_permissions": [
+    "https://api.jev.ai/*"
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'none'; worker-src 'self'"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["encrypt.js", "content.js"],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "JEV - Job Hiring Content Detector"
+  },
+  "icons": {
+    "16": "icons/hire-16.svg",
+    "48": "icons/hire-48.svg",
+    "128": "icons/hire-128.svg"
+  }
+}
