@@ -29,21 +29,21 @@
 ### 1. Highlight & Hide (Compact Gray Box Filter)
 *Non-hiring posts are cleanly masked behind minimal preview bars, keeping your feed laser-focused while preserving native virtual scroll mechanics.*
 
-![Highlight and Hide Mode](screenshots/Screenshot%201-%20Highlight%20and%20hide%20other%20mode.png)
+![Highlight and Hide Mode](jev-job-hiring-content-detector/screenshots/Screenshot%201-%20Highlight%20and%20hide%20other%20mode.png)
 
 ---
 
 ### 2. Highlight & Blackout / Dim Mode
 *Dim out all irrelevant posts to effortlessly scan through feeds and catch key job updates in high contrast.*
 
-![Highlight and Blackout Mode](screenshots/Screenshot%202%20-%20Highlight%20and%20blackout%20mode.png)
+![Highlight and Blackout Mode](jev-job-hiring-content-detector/screenshots/Screenshot%202%20-%20Highlight%20and%20blackout%20mode.png)
 
 ---
 
 ### 3. Highlight Only Mode
 *Subtly outline active hiring opportunities in Deep Teal while preserving the original feed layout and context.*
 
-![Highlight Only Mode](screenshots/Screenshot%203%20-%20Highlight%20only%20mode.png)
+![Highlight Only Mode](jev-job-hiring-content-detector/screenshots/Screenshot%203%20-%20Highlight%20only%20mode.png)
 
 ---
 
@@ -61,7 +61,7 @@
    - **Edge**: `edge://extensions`
 3. Toggle on **Developer mode** in the top right corner.
 4. Click **Load unpacked**.
-5. Select the cloned repository folder (`JEV---Job-Hiring-Content-Detector`) where `manifest.json` is located.
+5. Select the `jev-job-hiring-content-detector/` folder inside the cloned repository (where `manifest.json` is located).
 6. Pin the extension to your toolbar and browse social feeds!
 
 ---
